@@ -1,0 +1,59 @@
+table{
+    margin: auto; 
+    width: 50%; 
+    border: 1cm;
+    border-color: black ;
+    
+}
+.contenedor-display{
+    width: 100%;
+
+}
+
+.color_display{
+    height: 30px;
+    background-color: black;
+    border: medium #FFF;
+    font: "calibri";
+    color: red;
+    font-size: 18px;
+    text-align: right;
+    padding: 0px;
+    width: 100%;
+}
+.operadores{
+    height: 30px;
+    width: 100%;
+    color: black;
+    border: 1%;
+}
+.numero{
+    height: 30px;
+    width: 100%;
+    font-style:normal;
+    font-weight: bold;
+    border: 1%;
+    
+}
+td{
+    width: 25%;
+}
+.operadores:hover{
+    color: white;
+    /* filter: grayscale(80%); */
+    background-color: lightcoral;
+    /* filter: saturate(180%); */
+    /* filter: opacity(.5); */
+    transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    border: 0ch;
+    border-radius: 0.25em;
+    font-size :large;
+}
+
+.numero:hover{
+    font-size :large;
+}
+#display{
+    border-radius: 0.5em;
+}

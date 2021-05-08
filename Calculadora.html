@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JULCA EL CALCULADOR</title>
+    <link rel="stylesheet" href="Calculadora.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- <style>
+        table{
+            background-color: $red;
+        }
+    </style> -->
+    <script>
+        var cifra = "";
+        var acumulado = 0;
+        var simbOper = "";
+        $(document).ready(function(){
+            $('#btn').click(function(){
+                $('h1').text("JULCA sos un CRACK")
+            })
+        })
+
+        function display_numero(num){
+            const display = document.getElementById('display')
+            cifra = cifra + num
+            display.value = cifra
+        }
+        function display_punto(){
+            const display = document.getElementById('display')
+            cifra = cifra + '.'
+            display.value = cifra
+        }
+        function delete_val(){
+            const display = document.getElementById('display')
+            let cifra = ""
+            cifra = display.value
+            cifra = cifra.substr(0,cifra.length-1)
+            display.value = cifra
+        }
+        function resetAll(){
+            cifra = "";
+            acumulado = 0;
+            document.getElementById('display').value = cifra
+        }
+        function resetCifra(){
+            cifra = ""
+            document.getElementById('display').value = cifra
+        }
+        function calculo(simbolo){
+            const display = document.getElementById('display')
+            simbOper = simbolo
+            if (cifra != ""){
+                if(isNaN(cifra)==false){  //verfica si es un numero si es así pasa
+                    let val = parseFloat(cifra) //convierte texto en numero
+                    if (acumulado == 0){
+                        acumulado = val
+                        simbOper = simbolo
+                    }else{
+                        switch(simbolo){// dependiendo del parametro realizará la operacion
+                            case '+':
+                                acumulado = acumulado + val;
+                                simbOper = '+'
+                                break;
+                            case '-':
+                                acumulado = acumulado - val;
+                                simbOper = '-'
+                                break;
+                            case '/':
+                                acumulado = acumulado / val;
+                                simbOper = '/'
+                                break;
+                            case '*':
+                                acumulado = acumulado * val;
+                                simbOper = '*';
+                                break;
+                        }
+                    }
+                    if (acumulado != 0) {display.value = acumulado}
+                    cifra = "";
+                }else{
+                    alert('el Valor ingresado ' + cifra + ' no es un número');
+                    cifra = ""
+                    display.value = cifra
+                }
+            }
+        }
+        function resolver(){
+            // alert((simbOper=='+')? 'Hola':'Yono') //parecido al IF de forma muy simple
+            calculo(simbOper);
+        }
+
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <th colspan="4" class='contenedor-display'>
+                <input type="text" name="display" class="color_display" id="display" size="25">
+            </th>
+        </tr>
+        <tr>
+            <td><button id="btnCE" name="btnCE" class="operadores" onclick="resetAll();">CE</button></td>
+            <td><button id="btnC" name="btnC" class="operadores" onclick="resetCifra();">C</button></td>
+            <td><button id="btnAtras" name="btnAtras" class="operadores" onclick="delete_val();">-X-</button></td>
+            <td><button id="btnDiv" name="btnDiv" class="operadores" onclick="calculo('/');">/</button></td>
+        </tr>
+        <tr>
+            <td><button id="btn7" name="btn7" class="numero" onclick="display_numero(7);">7</button></td>
+            <td><button id="btn8" name="btn8" class="numero" onclick="display_numero(8);">8</button></td>
+            <td><button id="btn9" name="btn9" class="numero" onclick="display_numero(9);">9</button></td>
+            <td><button id="btnSuma" name="btnSuma" class="operadores" onclick="calculo('+');">+</button></td>
+        </tr>
+        <tr>
+            <td><button id="btn4" name="btn4" class="numero" onclick="display_numero(4);">4</button></td>
+            <td><button id="btn5" name="btn5" class="numero" onclick="display_numero(5);">5</button></td>
+            <td><button id="btn6" name="btn6" class="numero" onclick="display_numero(6);">6</button></td>
+            <td><button id="btnResta" name="btnResta" class="operadores" onclick="calculo('-');">-</button></td>
+        </tr>
+        <tr>
+            <td><button id="btn1" name="btn1" class="numero" onclick="display_numero(1);">1</button></td>
+            <td><button id="btn2" name="btn2" class="numero" onclick="display_numero(2);">2</button></td>
+            <td><button id="btn3" name="btn3" class="numero" onclick="display_numero(3);">3</button></td>
+            <td><button id="btnMult" name="btnMult" class="operadores" onclick="calculo('*');">*</button></td>
+        </tr>
+        <tr>
+            <td><button id="btn" name="btn" class="operadores">+/-</button></td>
+            <td><button id="btn0" name="btn0" class="numero" onclick="display_numero(0);">0</button></td>
+            <td><button id="btnPunto" name="btnPunto" class="operadores" onclick="display_punto();">.</button></td>
+            <td><button id="btnIgual" name="btnIgual" class="operadores" onclick="resolver();">=</button></td>
+        </tr>
+    </table>
+    <h1></h1>
+</body>
+</html>
