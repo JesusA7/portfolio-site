@@ -101,3 +101,23 @@ h1{
     max-width: 42px;
     filter: drop-shadow(0 3px 2px rgba(3, 3, 3, 0.7));
 }
+#evidences{
+    width: 85%;
+}
+@media (max-width: 575.98px) {
+    #evidences{
+        width: 100%;
+    }
+}
+
+
+@media (min-width: 576px) and (max-width: 767.98px) { }
+
+
+@media (min-width: 768px) and (max-width: 991.98px) { }
+
+
+@media (min-width: 992px) and (max-width: 1199.98px) {}
+
+
+@media (min-width: 1200px) { }
