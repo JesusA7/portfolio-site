@@ -77,3 +77,27 @@ h1{
     -webkit-transform: scale(1.05);
     transform: scale(1.05); 
 }
+#footer{
+    color: white;
+    left:0px;
+    bottom:0px;
+    width:100%;
+}
+
+#footer a{
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    
+}
+.container{
+    text-align: center;
+}
+.container .logo-brand{
+    padding: 0 0 10px;
+}
+.logo-brand{
+    min-width: 40px;
+    max-width: 42px;
+    filter: drop-shadow(0 3px 2px rgba(3, 3, 3, 0.7));
+}
